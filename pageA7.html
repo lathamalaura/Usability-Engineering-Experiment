@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- This is a comment tag-->
+		<meta charset="UTF-8" />
+		<title>Page A7</title>
+		<link rel="stylesheet" href="expNew.css" type="text/css" media="screen,projection" />
+		<script src="jquery-3.3.1.js"></script>
+		<script src="experiment.js"></script>
+		<script>
+			getResults();
+		
+			var clicks = parseInt(results["ExpA-Clicks"]);
+			var errors = parseInt(results["ExpA-Errors"]);
+			var loadDate;
+			
+			var iTime = parseInt(results["ExpA-iTime"]);
+		
+			$(document).ready(function() 
+			{
+				loadDate = new Date();
+				
+				$("*").click(function(e) {
+					// Stop the function propagating up the DOM tree
+					e.stopPropagation();
+					
+					// Get the interaction time
+					var intDate = new Date();
+					
+					// Check if this is the link we want
+					if ($(this).data("isdiv") != undefined) {
+						
+						clicks++;
+					}
+					else{
+						// An incorrect part of the page has been clicked
+						errors++;
+					}
+				});
+				
+				$("div:nth-of-type(1)")
+					.css("top", "652px")
+					.css("left", "1183px")
+					.click(function() {
+						
+						//Cannot close details
+					
+					});	
+
+				$("div:nth-of-type(2)")
+					.css("top", "812px")
+					.css("left", "1058px")
+					.click(function() {
+						
+						//Cannot add incorrect item to bag
+					
+					});	
+					
+				$("div:nth-of-type(3)")
+						.css("top", "130px")
+						.css("left", "25px")
+						.click(function() {
+							
+							// Get the interaction time
+							var intDate = new Date();
+							
+							iTime = iTime + (intDate.getTime() - loadDate.getTime() - benchmarkDate());
+							
+							callNextPage("pageA1.html", 
+											"ExpA-Clicks:" + clicks, 
+											"ExpA-Errors:" + errors,
+											"ExpA-iTime:" + iTime);
+						
+						});		
+			});
+		</script>
+	</head>
+	<body background="PA7background.png">
+		<div data-isdiv="div" class="detailsButton"></div>
+		<div class="addToBagLarge"></div>
+		<div data-isdiv="div" class="backButton"></div>
+	</body>
+</html>

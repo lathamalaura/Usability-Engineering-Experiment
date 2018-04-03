@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- This is a comment tag-->
+		<meta charset="UTF-8" />
+		<title>Page B2</title>
+		<link rel="stylesheet" href="expNew.css" type="text/css" media="screen,projection" />
+		<script src="jquery-3.3.1.js"></script>
+		<script src="experiment.js"></script>
+		<script>
+		
+			getResults();
+			var prod1Views = parseInt(results["ExpB-prod1Views"]);
+			var loadDate;
+			
+			var clicks = parseInt(results["ExpB-Clicks"]);
+			var errors = parseInt(results["ExpB-Errors"]);
+			var iTime = parseInt(results["ExpB-iTime"]);
+			
+			//console.log("iT:" + iTime);
+
+		
+			$(document).ready(function() 
+			{
+				loadDate = new Date();
+				prod1Views++;
+				
+					$("*").click(function(e) {
+						// Stop the function propagating up the DOM tree
+						e.stopPropagation();
+					
+						// Get the interaction time
+						var intDate = new Date();
+					
+						// Check if this is the link we want
+						if ($(this).data("isdiv") != undefined)
+						{
+							// The right link has been clicked
+							iTime = iTime + (intDate.getTime() - loadDate.getTime() - benchmarkDate());
+							
+							// Load the next page with the data we want to send
+							clicks++
+							callNextPage("QuestionnaireB.html", "ExpB-Errors:" + errors, "ExpB-Clicks:" + clicks, "ExpB-iTime:" + iTime);
+						}
+						else
+						{
+							// An incorrect part of the page has been clicked
+							errors++;
+						}
+				});
+
+				$("div:nth-of-type(1)")
+						.css("top", "653px")
+						.css("left", "562px")
+						.click(function() {
+					
+						});			
+
+				$("div:nth-of-type(2)")
+						.css("top", "653px")
+						.css("left", "904px")
+						.click(function() {
+						
+						});	
+						
+				$("div:nth-of-type(3)")
+						.css("top", "653px")
+						.css("left", "1229px")
+						.click(function() {
+						
+						});	
+				
+				$("div:nth-of-type(4)")
+						.css("top", "823px")
+						.css("left", "562px")
+						.click(function() 
+						{
+						
+						});	
+				$("div:nth-of-type(5)")
+						.css("top", "823px")
+						.css("left", "904px")
+						.click(function() {
+							
+						});
+						
+				$("div:nth-of-type(6)")
+						.css("top", "823px")
+						.css("left", "1229px")
+						.click(function() {
+							
+						});	
+					
+				$("div:nth-of-type(7)")
+						.css("top", "130px")
+						.css("left", "25px")
+						.click(function() {
+						
+						});
+						
+			});
+		</script>
+	</head>
+	<body background="PB2background(1).png">
+		<div class="addToBag"></div>
+		<div class="addToBag"></div>
+		<div data-isdiv="div" class="addToBag"></div>
+		<div class="addToBag"></div>
+		<div class="addToBag"></div>
+		<div data-isdiv="div" class="addToBag"></div>
+	</body>
+</html>

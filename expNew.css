@@ -1,0 +1,123 @@
+/* This is a CSS comment */
+* {
+	padding:0;
+	margin:0;
+}
+html, body {
+	/*min-height: 1504px; */
+	/* margin-top: 122px; */
+}
+body {
+	font-family: Arial,Verdana, sans-serif;
+	font-style: normal;
+	font-size: 100%;
+	background-repeat: no-repeat;
+/*	background-size: 1080px; */
+	background-position: center 0;
+/*	width: 1080px;*/
+	margin: 0 auto;
+}
+.navButtonClick {
+		background-color: grey;
+}
+
+
+
+.imgs1 {
+	/*background-image: url("smallProductImage.png");*/
+	position: fixed;
+	display: inline-block; 
+	top: 461px; 
+	left: 1561px;
+	border: 1px solid grey;
+}
+.imgs2 {
+	position: fixed;
+	display: inline-block; 
+	top: 461px; 
+	left: 1702px;
+	border: 1px solid grey;
+}
+.imgs3 {
+	position: fixed;
+	display: inline-block; 
+	top: 672px; 
+	left: 1704px;
+	border: 1px solid grey;
+}
+.addToBag {
+	position:fixed;
+	display: inline-block;
+	border: 1px solid red;
+	width: 222px;
+	min-height: 33px;
+	margin: 5px;
+}
+.addToBagLarge {
+	position:fixed;
+	display: inline-block;
+	border: 1px solid red;
+	width: 375px;
+	min-height: 78px;
+	margin: 5px;
+}
+.startButton {
+	position:fixed;
+	display: inline-block;
+	border: 1px solid red;
+	width: 298px;
+	min-height: 47px;
+	margin: 5px;
+}
+.detailsButton {
+	position:fixed;
+	display: inline-block;
+	border: 1px solid red;
+	width: 130px;
+	min-height: 33px;
+	margin: 5px;
+}
+.productImage {
+	position: fixed;
+	display: inline-block;
+	border: 1px solid red;
+	width: 256px;
+	min-height: 374px;
+	margin: 5px;
+}
+.compareBox {
+	position: fixed;
+	display: inline-block;
+	border: 1px solid red;
+	width: 27px;
+	min-height: 25px;
+	margin: 5px;
+	text-align:center;
+}
+.backButton {
+	position: fixed;
+	display: inline-block;
+	border: 1px solid black;
+	width: 60px;
+	min-height: 30px;
+	margin: 5px;
+	text-align:center;
+	/*left:10px;
+	top: 70px;*/
+}
+.compareButton {
+	position: fixed;
+	display: inline-block;
+	border: 1px solid red;
+	width: 120px;
+	min-height: 32px;
+	margin: 5px;
+	text-align:center;
+	/*left:10px;
+	top: 70px;*/
+}
+/*.navButtonHover {
+	background-color: grey;
+}*/
+
+	

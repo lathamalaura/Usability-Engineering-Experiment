@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- This is a comment tag-->
+		<meta charset="UTF-8" />
+		<title>Page B1</title>
+		<link rel="stylesheet" href="expNew.css" type="text/css" media="screen,projection" />
+		<script src="jquery-3.3.1.js"></script>
+		<script src="experiment.js"></script>
+		<script>
+			getResults();
+			
+			var errors = 0;
+			var clicks = 0;
+			var iTime = 0;
+			var prod1click = 0;
+			var prod2click = 0;
+			var prod3click = 0;
+			
+			var loadDate;
+			
+			$(document).ready(function() 
+			{
+				loadDate = new Date();
+			
+					$("*").click(function(e) {
+					// Stop the function propagating up the DOM tree
+					e.stopPropagation();
+					
+					// Get the interaction time
+					var intDate = new Date();
+					
+					// Check if this is the link we want
+					if (($(this).data("iscompdiv") != undefined) && (prod1click > 0) && (prod2click > 0) && (prod3click > 0))
+					{
+						// The right link has been clicked
+						iTime = intDate.getTime() - loadDate.getTime() - benchmarkDate();
+						
+						// Load the next page with the data we want to send
+						clicks++
+						callNextPage("pageB2.html", "ExpB-Clicks:" + clicks, "ExpB-Errors:" + errors, "ExpB-iTime:" + iTime);
+					}
+					else if ($(this).data("isdiv") != undefined){
+						clicks++
+					}
+					else{
+						// An incorrect part of the page has been clicked
+						errors++;
+					}
+				});
+				
+				$("img:nth-of-type(1)").hide();
+				$("img:nth-of-type(2)").hide();
+				$("img:nth-of-type(3)").hide();
+
+				$("div:nth-of-type(1)")
+						.css("top", "886px")
+						.css("left", "712px")
+						.click(function() {
+							$(this).addClass("navButtonClick");
+							$("img:nth-of-type(1)").show();
+							
+							prod1click++;
+					});			
+
+				$("div:nth-of-type(2)")
+						.css("top", "885px")
+						.css("left", "1007px")
+						.click(function() {
+							$(this).addClass("navButtonClick");
+							$("img:nth-of-type(2)").show();
+							
+							prod2click++;
+					});	
+						
+				$("div:nth-of-type(3)")
+						.css("top", "884px")
+						.css("left", "1295px")
+						.click(function() {
+							$(this).addClass("navButtonClick");
+							$("img:nth-of-type(3)").show();
+						
+							prod3click++;
+					});	
+					
+				$("div:nth-of-type(4)")
+						.css("top", "888px")
+						.css("left", "1634px")
+						.click(function() {
+						
+						});
+						
+			});
+		</script>
+	</head>
+	<body background="PB1background(1).png">
+		<div data-isdiv="div" class="compareBox"></div>
+		<div data-isdiv="div" class="compareBox"></div>
+		<div data-isdiv="div" class="compareBox"></div>	
+		<div data-iscompdiv="div" class="compareButton"></div>
+		<img src= "smallProductImage.png" class="imgs1"></img>
+		<img src= "smallProductImage2.png" class="imgs2"></img>
+		<img src= "smallProductImage3.png" class="imgs3"></img>
+	</body>
+</html>

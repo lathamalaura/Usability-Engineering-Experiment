@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- This is a comment tag-->
+		<meta charset="UTF-8" />
+		<title>Instructions</title>
+		<link rel="stylesheet" href="expNew.css" type="text/css" media="screen,projection" />
+		<script src="jquery-3.3.1.js"></script>
+		<script src="experiment.js"></script>
+		<script>
+			getResults();
+			
+			var uType = results["User-Type"];
+			
+			$(document).ready(function() {
+				
+				$("div:nth-of-type(1)")
+				.css("top", "790px")
+				.css("left", "1378px")
+				.click(function(e) {
+					// Stop the submit button from submitting
+					e.preventDefault();
+					
+					if (uType == "Even")
+					{
+						callNextPage("pageB1.html");
+						return false;
+					}
+					else if (uType == "Odd")
+					{
+						callNextPage("pageA1.html");
+						return false;
+					}
+					else{
+						alert("No user value found!");
+					}
+				});
+			});
+		</script>
+	</head>
+	<body background="InstructionsImage(1).png">
+		<div class="startButton"></div>
+	</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- This is a comment tag-->
+		<meta charset="UTF-8" />
+		<title>Page A1</title>
+		<link rel="stylesheet" href="expNew.css" type="text/css" media="screen,projection" />
+		<script src="jquery-3.3.1.js"></script>
+		<script src="experiment.js"></script>
+		<script>
+			getResults();
+			
+			var prodA1Views = 0;
+			if (results["ExA-prodA1Views"] != undefined)
+			{
+				prodA1Views = parseInt(results["ExpA-prodA1Views"]);
+			}
+			var prodA2Views = 0;
+			if (results["ExA-prodA2Views"] != undefined)
+			{
+				prodA2Views = parseInt(results["ExpA-prodA2Views"]);
+			}
+			var prodA3Views = 0;
+			if (results["ExA-prodA3Views"] != undefined)
+			{
+				prodA3Views = parseInt(results["ExpA-prodA3Views"]);
+			}
+			
+			var loadDate;
+			
+			var iTime = 0;
+			if (results["ExpA-iTime"] != undefined)
+			{
+				iTime = parseInt(results["ExpA-iTime"]);
+			}
+			var clicks = 0;
+			if (results["ExpA-Clicks"] != undefined)
+			{
+				clicks = parseInt(results["ExpA-Clicks"]);
+			}
+			var errors = 0;
+			if (results["ExpA-Errors"] != undefined)
+			{
+				errors = parseInt(results["ExpA-Errors"]);
+			}
+			
+			$(document).ready(function() 
+			{
+
+				loadDate = new Date();
+				
+				$("*").click(function(e) {
+					// Stop the function propagating up the DOM tree
+					e.stopPropagation();
+					
+					// Get the interaction time
+					var intDate = new Date();
+					
+					// Check if this is the link we want
+					if ($(this).data("isdiv") != undefined){	
+						clicks++
+					}
+					else{
+						// An incorrect part of the page has been clicked
+						errors++;
+					}
+				});
+				
+				$("div:nth-of-type(1)")
+					.css("top", "445px")
+					.css("left", "680px")
+					.click(function() {
+						
+						// Get the interaction time
+						var intDate = new Date();
+						
+						iTime = iTime + (intDate.getTime() - loadDate.getTime() - benchmarkDate());
+						
+						prodA1Views++;
+						
+						callNextPage("pageA4.html", 
+											"ExpA-Clicks:" + clicks, 
+											"ExpA-Errors:" + errors,
+											"ExpA-prodA1Views:" + prodA1Views,
+											"ExpA-iTime:" + iTime);
+					
+					});		
+				
+				$("div:nth-of-type(2)")
+					.css("top", "445px")
+					.css("left", "971px")
+					.click(function() {
+						
+						// Get the interaction time
+						var intDate = new Date();
+						
+						iTime = iTime + (intDate.getTime() - loadDate.getTime() - benchmarkDate());
+						
+						prodA2Views++;
+						
+						callNextPage("pageA6.html", 
+											"ExpA-Clicks:" + clicks, 
+											"ExpA-Errors:" + errors,
+											"ExpA-prodA2Views:" + prodA2Views,
+											"ExpA-iTime:" + iTime);
+						
+					});	
+					
+				
+				$("div:nth-of-type(3)")
+						.css("top", "445px")
+						.css("left", "1266px")
+						.click(function() {
+					
+							// Get the interaction time
+							var intDate = new Date();
+							
+							prodA3Views++;
+							
+							iTime = iTime + (intDate.getTime() - loadDate.getTime() - benchmarkDate());
+							
+							callNextPage("pageA2.html", 
+											"ExpA-Clicks:" + clicks, 
+											"ExpA-Errors:" + errors,
+											"ExpA-prodA3Views:" + prodA3Views,
+											"ExpA-iTime:" + iTime);
+							
+						});
+						
+			});
+		</script>
+	</head>
+	<body background="PA1background.png">
+		<div data-isdiv="div" class="productImage"></div>
+		<div data-isdiv="div" class="productImage"></div>
+		<div data-isdiv="div" class="productImage">
+		</div>
+	</body>
+</html>

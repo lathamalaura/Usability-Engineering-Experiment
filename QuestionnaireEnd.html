@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>End Questionnaire</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--  <link rel="stylesheet" href="generic.css" type="text/css" media="screen,projection" /> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="jquery-3.3.1.js"></script>
+    <script src="experiment.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                 
+  
+    
+  <script>
+            
+      getResults();
+      
+			$(document).ready(function() {
+                
+				// Listen for the submit button to be clicked
+				$("#theSubmit").click(function(e) {
+					// Stop the submit button from submitting
+					e.preventDefault();
+					
+                    if ($("input:checked").length == 12){
+                        
+                        callNextPage("resultsPage.html",
+							"Question1E:" + $("input[name='Question1:']:checked").val(), 
+							"Question2E:" + $("input[name='Question2:']:checked").val(), 
+							"Question3E:" + $("input[name='Question3:']:checked").val(),
+							"Question4E:" + $("input[name='Question4:']:checked").val(),
+							"Question5E:" + $("input[name='Question5:']:checked").val(),
+							"Question6E:" + $("input[name='Question6:']:checked").val(),
+							"Question7E:" + $("input[name='Question7:']:checked").val(),
+							"Question8E:" + $("input[name='Question8:']:checked").val(),
+							"Question9E:" + $("input[name='Question9:']:checked").val(),
+							"Question10E:" + $("input[name='Question10:']:checked").val(),
+							"Question11E:" + $("input[name='Question11:']:checked").val(),
+							"Question12E:" + $("input[name='Question12:']:checked").val());
+					}
+					else {
+                        alert("Error...please answer all questions!");
+                    }
+					
+				});
+			
+			});
+  </script>
+</head>
+<body>
+
+<div class="container" style="margin-top: 50px;">
+<div class="jumbotron">
+    <div class="site-wrapper-inner" style= "width: 800px; margin-left: 100px;">
+  <h2 style="font-size: 80px; text-align: center;">Questionnaire</h2>
+	<p style="text-align: center;">YOUR ALMOST THERE!</p>
+    <p style="text-align: center;">Please fill in the questions stated below to the best of you ability</p><br><br><br>
+  <form class="form-horizontal">
+   
+    <div class="form-group" style= "width: 720px; margin-left: 50px;">
+        <label style="font-size: 20px;">Q1) Which website did you prefer to compare the length of the three dresses?
+            </label>
+            <label class="radio-inline" style="margin-left:150px;">
+            <input name="Question1:" type="radio" name="optradio" value="1">1st Website</label>
+                <label class="radio-inline"><input name="Question1:" type="radio" name="optradio" value="2">2nd Website</label>
+      
+    </div><br>
+	
+			<div class="form-group" style= "width: 720px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q2) How easy did you find the instructions given at the start of the experiment?</label>
+		<label class="radio-inline" style="margin-left:150px;">
+             <input name="Question2:" type="radio" name="optradio" value="Very_Easy">Very Easy</label>
+                <label class="radio-inline"><input name="Question2:" type="radio" name="optradio" value="Easy">Easy</label>
+                <label class="radio-inline"><input name="Question2:" type="radio" name="optradio" value="Ok">Ok</label>
+                <label class="radio-inline"><input name="Question2:" type="radio" name="optradio" value="Hard">Hard</label>
+                <label class="radio-inline"><input name="Question2:" type="radio" name="optradio" value="Very_Hard">Very Hard</label>
+    </div><br>
+	
+				<div class="form-group" style= "width: 500px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q3) How helpful were the facilitators?</label>
+		<label class="radio-inline" style="margin-left:150px;">
+               <input name="Question3:" type="radio" name="optradio" value="Helpful">Helpful</label>
+                <label class="radio-inline" style="margin-left: 10px;"><input name="Question3:" type="radio" name="optradio" value="Ok">Ok</label>
+                <label class="radio-inline"><input name="Question3:" type="radio" name="optradio" value="Not_Helpful">Not helpful</label>
+                <label class="radio-inline"><input name="Question3:" type="radio" name="optradio" value="Rather_not_say">Rather not say</label>
+    </div><br>
+      
+    <div class="form-group" style= "width: 400px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q4) What is you age range?</label>
+                <label class="radio-inline" style="margin-left:150px;">
+                    <input name="Question4:" type="radio" name="optradio" value="18-24">18-24</label>
+                <label class="radio-inline" style="margin-left: 20px;"><input name="Question4:" type="radio" name="optradio" value="25-34">25-34</label>
+                <label class="radio-inline" style="margin-left: 20px;"><input name="Question4:" type="radio" name="optradio" value="35plus">35+</label>
+    </div><br>
+      
+    <div class="form-group" style= "width: 400px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q5) What is your gender?</label>
+             <label class="radio-inline" name="Question3:" style="margin-left:150px;">
+            <input name="Question5:" type="radio" name="optradio" value="Male">Male</label>
+                <label class="radio-inline" style="margin-left: 0px;"><input name="Question5:" type="radio" name="optradio" value="Female">Female</label>
+                <label class="radio-inline" style="margin-left: 10px;"><input name="Question5:" type="radio" name="optradio" value="Rather_not_say">Rather not say</label>
+    </div><br>
+      
+    <div class="form-group" style= "width: 720px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q6) What course do you study at University?</label>
+             <label class="radio-inline" name="Question4:" style="margin-left:80px;">
+            <input name="Question6:" type="radio" name="optradio" value="Computer_Animation_and_Visualisation">Computer Animation and Visualisation</label>
+                <label class="radio-inline"><input name="Question6:" type="radio" name="optradio" value="Computer_Studies">Computer Studies</label>
+                <label class="radio-inline"><input name="Question6:" type="radio" name="optradio" value="Information_Systems">Information Systems</label>
+                <label class="radio-inline" style="margin-left: 30px;"><input name="Question6:" type="radio" name="optradio" value="Information_Technology_and_Multimedia_Computing">Information Technology and Multimedia Computing</label>
+                <label class="radio-inline"><input name="Question6:" type="radio" name="optradio" value="Software_Engineering">Software Engineering</label>
+				<label class="radio-inline"><input name="Question6:" type="radio" name="optradio" value="Not_Listed">Not Listed</label>
+    </div><br>
+      
+    <div class="form-group" style= "width: 720px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q7) How many hours do you spend using a computer each week?</label>
+            <label class="radio-inline" style="margin-left:150px;">
+            <input name="Question7:" type="radio" name="optradio" value="0-5">0-5</label>
+                <label class="radio-inline"><input name="Question7:" type="radio" name="optradio" value="6-10">6-10</label>
+                <label class="radio-inline"><input name="Question7:" type="radio" name="optradio" value="11-15">11-15</label>
+                <label class="radio-inline"><input name="Question7:" type="radio" name="optradio" value="15-20">15-20</label>
+                <label class="radio-inline"><input name="Question7:" type="radio" name="optradio" value="20plus">20+</label>
+    </div><br>
+	
+	    <div class="form-group" style= "width: 600px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q8) How many hours do you spend online?</label>
+            <label class="radio-inline" style="margin-left:150px;">
+            <input name="Question8:" type="radio" name="optradio" value="0-5">0-5</label>
+                <label class="radio-inline"><input name="Question8:" type="radio" name="optradio" value="6-10">6-10</label>
+                <label class="radio-inline"><input name="Question8:" type="radio" name="optradio" value="11-15">11-15</label>
+                <label class="radio-inline"><input name="Question8:" type="radio" name="optradio" value="15-20">15-20</label>
+                <label class="radio-inline"><input name="Question8:" type="radio" name="optradio" value="20plus">20+</label>
+    </div><br>
+	
+		<div class="form-group" style= "width: 400px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q9) Do you shop online?</label>
+            <label class="radio-inline" style="margin-left:150px;">
+            <input name="Question9:" type="radio" name="optradio" value="Yes">Yes</label>
+                <label class="radio-inline"><input name="Question9:" type="radio"  value="No">No</label>
+    </div><br>
+	
+		<div class="form-group" style= "width: 500px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q10) How often do you shop online?</label>
+             <label class="radio-inline" style="margin-left:150px;">
+            <input name="Question10:" type="radio" name="optradio" value="Very_Often">Very often</label>
+                <label class="radio-inline"><input name="Question10:" type="radio" name="optradio" value="Often">Often</label>
+                <label class="radio-inline"><input name="Question10:" type="radio" name="optradio" value="Not_often">Not often</label>
+    </div><br>
+	
+		<div class="form-group" style= "width: 600px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q11) How easy do you find shopping online?</label>
+		<label class="radio-inline" style="margin-left:150px;">
+             <input name="Question11:" type="radio" name="optradio" value="Very_Easy">Very Easy</label>
+                <label class="radio-inline"><input name="Question11:" type="radio" name="optradio" value="Easy">Easy</label>
+                <label class="radio-inline"><input name="Question11:" type="radio" name="optradio" value="Ok">Ok</label>
+                <label class="radio-inline"><input name="Question11:" type="radio" name="optradio" value="Hard">Hard</label>
+                <label class="radio-inline"><input name="Question11:" type="radio" name="optradio" value="Very_Hard">Very Hard</label>
+    </div><br>
+   
+		<div class="form-group" style= "width: 720px; margin-left: 50px;">
+        <label style="font-size: 20px;" for="sel1">Q12) What type of user would best describe yourself?</label>
+		<label class="radio-inline" style="margin-left:150px;">
+             <input name="Question12:" type="radio" name="optradio" value="Novice_User">Novice user</label>
+                <label class="radio-inline"><input name="Question12:" type="radio" name="optradio" value="Average_user">Average user</label>
+                <label class="radio-inline"><input name="Question12:" type="radio" name="optradio" value="Expert_User">Expert user</label>
+    </div><br>
+      <div class="form-group" style= "width: 600px; margin-left: 700px;">
+      <input class="btn btn-default btn-lg" id="theSubmit" type="submit" value="Submit" />
+      </div>
+      
+  </form>
+  </div>
+    </div>
+</div>
+
+</body>
+</html>
